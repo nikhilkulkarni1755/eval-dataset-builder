@@ -40,7 +40,7 @@ export default function LandingPage() {
             href="/signup"
             className="bg-gray-900 text-white px-8 py-3.5 rounded-xl text-base font-medium hover:bg-gray-700 transition-colors"
           >
-            Start building — $49/mo
+            Start building
           </Link>
           <Link href="/login" className="text-gray-500 hover:text-gray-900 text-base">
             Already have an account?

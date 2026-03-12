@@ -52,6 +52,15 @@ export default async function AppLayout({ children }: { children: React.ReactNod
             </svg>
             Billing
           </Link>
+          <Link
+            href="/settings/feedback"
+            className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            </svg>
+            Feedback
+          </Link>
           <SignOutButton />
         </div>
       </aside>
