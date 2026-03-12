@@ -4,9 +4,13 @@ import { createClient } from '@/lib/supabase/server'
 
 async function signOut() {
   'use server'
-  const { createClient } = await import('@/lib/supabase/server')
-  const supabase = await createClient()
-  await supabase.auth.signOut()
+  try {
+    const { createClient } = await import('@/lib/supabase/server')
+    const supabase = await createClient()
+    await supabase.auth.signOut()
+  } catch {
+    // ignore signout errors
+  }
   redirect('/login')
 }
 
