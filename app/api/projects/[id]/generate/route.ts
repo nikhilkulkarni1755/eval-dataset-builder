@@ -42,19 +42,21 @@ export async function POST(
   }
 
   // Reset monthly counter if billing period has rolled over
-  const billingStart = new Date(profile.billing_period_start)
-  const now = new Date()
-  const daysSinceBilling = (now.getTime() - billingStart.getTime()) / (1000 * 60 * 60 * 24)
-  if (daysSinceBilling >= 30) {
-    await getSupabaseAdmin()
-      .from('users')
-      .update({ examples_generated_this_month: 0, billing_period_start: now.toISOString() })
-      .eq('id', user.id)
-    profile.examples_generated_this_month = 0
-  }
+  if (profile) {
+    const billingStart = new Date(profile.billing_period_start)
+    const now = new Date()
+    const daysSinceBilling = (now.getTime() - billingStart.getTime()) / (1000 * 60 * 60 * 24)
+    if (daysSinceBilling >= 30) {
+      await getSupabaseAdmin()
+        .from('users')
+        .update({ examples_generated_this_month: 0, billing_period_start: now.toISOString() })
+        .eq('id', user.id)
+      profile.examples_generated_this_month = 0
+    }
 
-  if (profile.examples_generated_this_month >= 1000) {
-    return new Response(JSON.stringify({ requiresOverage: true }), { status: 402 })
+    if (profile.examples_generated_this_month >= 1000) {
+      return new Response(JSON.stringify({ requiresOverage: true }), { status: 402 })
+    }
   }
 
   const { target_count } = await req.json() as { target_count: number }
@@ -151,7 +153,7 @@ export async function POST(
         await getSupabaseAdmin()
           .from('users')
           .update({
-            examples_generated_this_month: (profile.examples_generated_this_month ?? 0) + totalGenerated,
+            examples_generated_this_month: (profile?.examples_generated_this_month ?? 0) + totalGenerated,
           })
           .eq('id', user.id)
 
