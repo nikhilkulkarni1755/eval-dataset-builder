@@ -139,7 +139,7 @@ function AxisRow({
             <input
               value={local.name}
               onChange={e => setLocal(p => ({ ...p, name: e.target.value }))}
-              className="w-full border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900"
+              className="w-full border border-gray-300 rounded-lg px-3 py-1.5 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
             />
           </div>
           <div>
@@ -147,7 +147,7 @@ function AxisRow({
             <input
               value={local.description}
               onChange={e => setLocal(p => ({ ...p, description: e.target.value }))}
-              className="w-full border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900"
+              className="w-full border border-gray-300 rounded-lg px-3 py-1.5 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
             />
           </div>
           <div>
@@ -155,7 +155,7 @@ function AxisRow({
             <input
               value={local.values.join(', ')}
               onChange={e => setLocal(p => ({ ...p, values: e.target.value.split(',').map(v => v.trim()).filter(Boolean) }))}
-              className="w-full border border-gray-300 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900"
+              className="w-full border border-gray-300 rounded-lg px-3 py-1.5 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
             />
           </div>
           <div className="flex gap-2">

@@ -201,7 +201,7 @@ export default function NewProjectPage() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900"
               placeholder="Customer support classifier"
             />
           </div>
@@ -212,7 +212,7 @@ export default function NewProjectPage() {
               value={domain}
               onChange={(e) => setDomain(e.target.value)}
               rows={3}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 resize-none"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 resize-none"
               placeholder="One sentence describing what your model does, e.g. 'Classifies customer support tickets by urgency and department'"
             />
           </div>
@@ -250,7 +250,7 @@ export default function NewProjectPage() {
                 setSchemaError('')
               }}
               rows={8}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-gray-900 resize-none"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm font-mono text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 resize-none"
               placeholder={'{\n  "ticket_text": "My order hasn\'t arrived",\n  "urgency": "high",\n  "department": "shipping"\n}'}
             />
             {schemaError && <p className="mt-1 text-sm text-red-600">{schemaError}</p>}
@@ -355,7 +355,7 @@ export default function NewProjectPage() {
                 value={jsonlPaste}
                 onChange={(e) => { setJsonlPaste(e.target.value); setJsonlError('') }}
                 rows={5}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-gray-900 resize-none"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm font-mono text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 resize-none"
                 placeholder={'{"ticket_text": "...", "urgency": "high", "department": "billing"}\n{"ticket_text": "...", "urgency": "low", "department": "shipping"}'}
               />
               {jsonlError && <p className="mt-1 text-sm text-red-600">{jsonlError}</p>}
@@ -388,7 +388,7 @@ export default function NewProjectPage() {
                           value={seed.input[f] ?? ''}
                           onChange={(e) => updateSeed(idx, 'input', f, e.target.value)}
                           rows={2}
-                          className="w-full border border-gray-200 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-gray-900 resize-none"
+                          className="w-full border border-gray-200 rounded-lg px-2 py-1.5 text-xs text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-900 resize-none"
                         />
                       </div>
                     ))}
@@ -402,7 +402,7 @@ export default function NewProjectPage() {
                           value={seed.output[f] ?? ''}
                           onChange={(e) => updateSeed(idx, 'output', f, e.target.value)}
                           rows={2}
-                          className="w-full border border-gray-200 rounded-lg px-2 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-gray-900 resize-none"
+                          className="w-full border border-gray-200 rounded-lg px-2 py-1.5 text-xs text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-900 resize-none"
                         />
                       </div>
                     ))}
