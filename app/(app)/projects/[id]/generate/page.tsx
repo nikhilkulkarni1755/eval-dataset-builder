@@ -113,7 +113,8 @@ export default function GeneratePage({ params }: GeneratePageProps) {
       if (err instanceof Error && err.name === 'AbortError') {
         setStatus('Generation cancelled.')
       } else {
-        setError('Generation failed. Please try again.')
+        const msg = err instanceof Error ? err.message : String(err)
+        setError(`Generation failed: ${msg}`)
         console.error(err)
       }
       setGenerating(false)
